@@ -11,10 +11,9 @@
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:hint="hollow"
-        android:textSize="26dip"
-        android:gravity="right|bottom"
+        android:layout_weight="1.5"
+        android:textSize="30dip"
+        android:gravity="right|center_vertical"
         android:editable="false"
         android:background="@drawable/white_bgs"/>
 
@@ -25,12 +24,14 @@
         android:layout_weight="1">
         <Button
             android:id="@+id/clear"
+            android:textSize="26dip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_span="2"
             android:text="clear"/>
         <Button
             android:id="@+id/deng"
+            android:textSize="26dip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_span="2"
@@ -43,21 +44,25 @@
         android:layout_weight="1">
         <Button
             android:id="@+id/Button7"
+            android:textSize="26dip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="7"/>
         <Button
             android:id="@+id/Button8"
+            android:textSize="26dip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="8"/>
         <Button
             android:id="@+id/Button9"
+            android:textSize="26dip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="9"/>
         <Button
             android:id="@+id/Buttonchu"
+            android:textSize="26dip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="/"/>
@@ -69,21 +74,25 @@
         android:layout_weight="1">
         <Button
             android:id="@+id/Button4"
+            android:textSize="26dip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="4"/>
         <Button
             android:id="@+id/Button5"
+            android:textSize="26dip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="5"/>
         <Button
             android:id="@+id/Button6"
+            android:textSize="26dip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="6"/>
         <Button
             android:id="@+id/Buttonchen"
+            android:textSize="26dip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="*"/>
@@ -95,21 +104,25 @@
         android:layout_weight="1">
         <Button
             android:id="@+id/Button1"
+            android:textSize="26dip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="1"/>
         <Button
             android:id="@+id/Button2"
+            android:textSize="26dip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="2"/>
         <Button
             android:id="@+id/Button3"
+            android:textSize="26dip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="3"/>
         <Button
             android:id="@+id/Buttonjian"
+            android:textSize="26dip"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="-"/>
@@ -120,24 +133,29 @@
         android:layout_weight="1">
         <Button
             android:id="@+id/Button0"
+            android:textSize="26dip"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="0"/>
         <Button
             android:id="@+id/Buttondian"
+            android:textSize="26dip"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="."/>
         <Button
             android:id="@+id/delete"
+            android:textSize="22dip"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:singleLine="true"
             android:text="delete"/>
         <Button
             android:id="@+id/Buttonjia"
+            android:textSize="26dip"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

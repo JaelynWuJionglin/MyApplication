@@ -120,23 +120,27 @@
         android:layout_weight="1">
         <Button
             android:id="@+id/Button0"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:text="0"/>
         <Button
             android:id="@+id/Buttondian"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:text="."/>
         <Button
             android:id="@+id/delete"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:text="delete"/>
         <Button
             android:id="@+id/Buttonjia"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:text="+"/>
 
     </TableRow>

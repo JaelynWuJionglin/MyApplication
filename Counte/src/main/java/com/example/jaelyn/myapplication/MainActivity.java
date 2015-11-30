@@ -92,7 +92,15 @@ public class MainActivity extends Activity implements OnClickListener {
                     str = "";
                     editText.setText("");
                 }
-                editText.setText(str + " " + ((Button) v).getText() +" ");
+                if(!str.equals("")){
+                    if((str.substring(str.length()-1,str.length())).equals(" ")){
+                        str = str.substring(0,str.length()-3) + " " + ((Button) v).getText() +" ";
+                        editText.setText(str);
+                    }else{
+                        editText.setText(str + " " + ((Button) v).getText() +" ");
+                    }
+                }
+
                 break;
             case R.id.delete:
                 if(clear_flag){
@@ -109,7 +117,18 @@ public class MainActivity extends Activity implements OnClickListener {
                 editText.setText("");
                 break;
             case R.id.deng:
-                getResult();
+                if(!str.equals("")){
+                    String m = str.substring(str.indexOf(" ")+1,str.length());
+                    String m1 = m.substring(m.indexOf(" ")+1,m.length());
+                   // Log.i("tag" ,m + "---"+m1);
+                    if (m1.contains(" ")){
+                        editText.setText("错误格式");
+                        str = "";
+                        clear_flag = true;
+                    }else {
+                        getResult();
+                    }
+                }
                 break;
         }
     }

@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.Services.DownloadService;
-import com.jaelyn.entities.FileInfo;
+import com.jaelyn.entities.ThreadInfo;
 
 public class MainActivity extends Activity {
     private TextView textView;
@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
         //String url = "http://dldir1.qq.com/qqfile/qq/QQ7.9/16621/QQ7.9.exe";
         String name = url.substring(url.lastIndexOf("/")+1);
         textView.setText(name);
-        final FileInfo fileInfo = new FileInfo(0,url,name,0,0);
+        final ThreadInfo.FileInfo fileInfo = new ThreadInfo.FileInfo(0,url,name,0,0);
 
         //事件监听
         //开始

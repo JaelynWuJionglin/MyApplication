@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.Download.db.ThreadDAO;
 import com.Download.db.ThreadDAOImpl;
+import com.jaelyn.entities.FileInfo;
 import com.jaelyn.entities.ThreadInfo;
 
 import org.apache.http.HttpStatus;
@@ -23,12 +24,12 @@ import java.util.List;
  */
 public class DownloadTask {
     private Context mContext = null;
-    private ThreadInfo.FileInfo fileInfo = null;
+    private FileInfo fileInfo = null;
     private ThreadDAO mDao = null;
     private int mFinishde = 0;
     public boolean isPause = false;//下载暂停开关
 
-    public DownloadTask(Context mContext, ThreadInfo.FileInfo fileInfo) {
+    public DownloadTask(Context mContext, FileInfo fileInfo) {
         this.mContext = mContext;
         this.fileInfo = fileInfo;
         mDao = new ThreadDAOImpl(mContext);
@@ -99,9 +100,9 @@ public class DownloadTask {
                         raf.write(buffer, 0, len);
                         //把下载进度发送广播给Activity
                         mFinishde += len;
-                        if (System.currentTimeMillis() - time >200){//每200毫秒发送一次
+                        if (System.currentTimeMillis() - time >300){//每200毫秒发送一次
                             time = System.currentTimeMillis();
-                            intent.putExtra("finished", mFinishde * 200 / fileInfo.getLength());
+                            intent.putExtra("finished", mFinishde * 300 / fileInfo.getLength());
                             mContext.sendBroadcast(intent);
                         }
                         //在下载暂停时，保存下载进度

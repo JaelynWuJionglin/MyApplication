@@ -6,13 +6,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.Services.DownloadService;
-import com.jaelyn.entities.ThreadInfo;
+import com.jaelyn.entities.FileInfo;
 
 public class MainActivity extends Activity {
     private TextView textView;
@@ -30,11 +31,11 @@ public class MainActivity extends Activity {
         progressBar.setMax(100);
 
         //创建文件信息对象
-        String url = "http://192.168.1.101/download/1.mp3";
-        //String url = "http://dldir1.qq.com/qqfile/qq/QQ7.9/16621/QQ7.9.exe";
+        //String url = "http://192.168.1.101/download/1.mp3";
+        String url = "http://dldir1.qq.com/qqfile/qq/QQ7.9/16621/QQ7.9.exe";
         String name = url.substring(url.lastIndexOf("/")+1);
         textView.setText(name);
-        final ThreadInfo.FileInfo fileInfo = new ThreadInfo.FileInfo(0,url,name,0,0);
+        final FileInfo fileInfo = new FileInfo(0,url,name,0,0);
 
         //事件监听
         //开始

@@ -8,7 +8,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.util.Log;
 
-import com.jaelyn.entities.ThreadInfo;
+import com.jaelyn.entities.FileInfo;
 
 import org.apache.http.HttpStatus;
 
@@ -36,12 +36,12 @@ public class DownloadService extends Service{
     public int onStartCommand(Intent intent, int flags, int startId) {
         //获得activity传来的参数
         if (ACTION_START.equals(intent.getAction())){
-             ThreadInfo.FileInfo fileInfo = (ThreadInfo.FileInfo) intent.getSerializableExtra("fileInfo");
+             FileInfo fileInfo = (FileInfo) intent.getSerializableExtra("fileInfo");
              Log.i("test","start" + fileInfo.toString());
             //启动初始化线程
             new InitThread(fileInfo).start();
         }else if (ACTION_STOP.equals(intent.getAction())){
-            ThreadInfo.FileInfo fileInfo = (ThreadInfo.FileInfo) intent.getSerializableExtra("fileInfo");
+            FileInfo fileInfo = (FileInfo) intent.getSerializableExtra("fileInfo");
             Log.i("test", "stop" + fileInfo.toString());
             if (mTask != null){
                 mTask.isPause = true;
@@ -61,7 +61,7 @@ public class DownloadService extends Service{
         public void handleMessage(Message msg) {
             switch (msg.what){
                 case MSG_INT:
-                    ThreadInfo.FileInfo fileinfo = (ThreadInfo.FileInfo) msg.obj;//获得下面发送过来的FileInfo对象
+                    FileInfo fileinfo = (FileInfo) msg.obj;//获得下面发送过来的FileInfo对象
                     Log.i("test","init"+fileinfo);
                     //启动下载任务
                     mTask = new DownloadTask(DownloadService.this,fileinfo);
@@ -75,9 +75,9 @@ public class DownloadService extends Service{
     * 初始化子线程
     */
     class InitThread extends Thread{
-        private ThreadInfo.FileInfo mFileInfo = null;
+        private FileInfo mFileInfo = null;
 
-        public InitThread(ThreadInfo.FileInfo mFileInfo) {
+        public InitThread(FileInfo mFileInfo) {
             this.mFileInfo = mFileInfo;
         }
 

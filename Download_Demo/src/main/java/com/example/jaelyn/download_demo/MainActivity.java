@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -64,6 +66,20 @@ public class MainActivity extends Activity {
         filter.addAction(DownloadService.ACTION_UPDATE);
         filter.addAction(DownloadService.ACTION_FINISH);
         registerReceiver(mReceiver,filter);
+
+
+
+        /*
+         * 上传按钮
+         */
+        Button upload_button = (Button) findViewById(R.id.upload_button);
+        upload_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Upload_Activity.class);
+                startActivity(intent);
+            }
+        });
     }
     //处理中文编码
     private String getUrlString(String url){
@@ -96,7 +112,7 @@ public class MainActivity extends Activity {
                 //下载完毕设置进度条为0
                 FileInfo fileInfo = (FileInfo) intent.getSerializableExtra("fileInfo");
                 Toast.makeText(MainActivity.this,fileInfo.getFileName()+"下载完成",Toast.LENGTH_SHORT).show();
-                adapter.updateProgress(fileInfo.getId(),0);
+                adapter.updateProgress(fileInfo.getId(), 0);
             }
         }
     };

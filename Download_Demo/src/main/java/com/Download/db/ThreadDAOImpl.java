@@ -18,12 +18,12 @@ public class ThreadDAOImpl implements ThreadDAO{
     private DBHaper mHaper = null;
 
     public ThreadDAOImpl(Context context) {
-        mHaper = new DBHaper(context);
+        mHaper = DBHaper.getsInstance(context);
     }
 
-
+    //synchronized 为同步方法，同时只能一个线程调用，保证线程安全
     @Override
-    public void insertThread(ThreadInfo threadInfo) {
+    public synchronized void insertThread(ThreadInfo threadInfo) {
         SQLiteDatabase db = mHaper.getWritableDatabase();//获取一个可以写的数据库
         db.execSQL("insert into thread_info(thread_id,url,start,end,finished) values(?,?,?,?,?)",
                 new Object[]{threadInfo.getId(),
@@ -35,15 +35,15 @@ public class ThreadDAOImpl implements ThreadDAO{
     }
 
     @Override
-    public void deleteThread(String url, int thread_id) {
+    public synchronized void deleteThread(String url) {
         SQLiteDatabase db = mHaper.getWritableDatabase();//获取一个可以写的数据库
-        db.execSQL("delete from thread_info where url = ? and thread_id = ?",
-                new Object[]{url,thread_id});
+        db.execSQL("delete from thread_info where url = ?",
+                new Object[]{url});
         db.close();
     }
 
     @Override
-    public void updateThread(String url, int thread_id, int finished) {
+    public synchronized void updateThread(String url, int thread_id, int finished) {
         SQLiteDatabase db = mHaper.getWritableDatabase();//获取一个可以写的数据库
         db.execSQL("update thread_info set finished = ? where url = ? and thread_id = ?",
                 new Object[]{finished,url,thread_id});
@@ -52,7 +52,7 @@ public class ThreadDAOImpl implements ThreadDAO{
 
     @Override
     public List<ThreadInfo> getThread(String url) {
-        SQLiteDatabase db = mHaper.getWritableDatabase();//获取一个可以写的数据库
+        SQLiteDatabase db = mHaper.getReadableDatabase();//获取一个只读的数据库
         List<ThreadInfo> list = new ArrayList<ThreadInfo>();
         Cursor cursor = db.rawQuery("select * from thread_info where url = ?",new String[]{url});
         while (cursor.moveToNext()){
@@ -71,7 +71,7 @@ public class ThreadDAOImpl implements ThreadDAO{
 
     @Override
     public Boolean isExists(String url, int thread_id) {
-        SQLiteDatabase db = mHaper.getWritableDatabase();//获取一个可以写的数据库
+        SQLiteDatabase db = mHaper.getReadableDatabase();//获取一个只读的数据库
         Cursor cursor = db.rawQuery("select * from thread_info where url = ? and thread_id = ?", new String[]{url, thread_id + ""});
         boolean exists = cursor.moveToNext();
         cursor.close();

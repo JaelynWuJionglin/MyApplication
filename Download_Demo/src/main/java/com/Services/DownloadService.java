@@ -16,6 +16,8 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Created by Jaelyn on 2015/12/1.
@@ -25,26 +27,34 @@ public class DownloadService extends Service{
     public static final String ACTION_START = "ACTION_START";
     public static final String ACTION_STOP = "ACTION_STOP";
     public static final String ACTION_UPDATE = "ACTION_UPDATE";
+    public static final String ACTION_FINISH = " ACTION_FINISH";
 
     public static final String DOWNLOAD_PATH = Environment.getExternalStorageDirectory().
             getAbsolutePath() + "/downloads/";  //存文件路径
 
     public static final int MSG_INT = 0;
-    private  DownloadTask mTask = null;
+    //下载任务集合
+    private Map<Integer,DownloadTask> mTask = new LinkedHashMap<Integer, DownloadTask>();
+    private InitThread initThread = null;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         //获得activity传来的参数
         if (ACTION_START.equals(intent.getAction())){
              FileInfo fileInfo = (FileInfo) intent.getSerializableExtra("fileInfo");
-             Log.i("test","start" + fileInfo.toString());
-            //启动初始化线程
-            new InitThread(fileInfo).start();
+             //Log.i("test","start" + fileInfo.toString());
+             //启动初始化线程
+             initThread = new InitThread(fileInfo);
+             //initThread.start();
+             DownloadTask.mExecutorService.execute(initThread);
         }else if (ACTION_STOP.equals(intent.getAction())){
+            //暂停下载
             FileInfo fileInfo = (FileInfo) intent.getSerializableExtra("fileInfo");
-            Log.i("test", "stop" + fileInfo.toString());
-            if (mTask != null){
-                mTask.isPause = true;
+            //Log.i("test", "stop" + fileInfo.toString());
+            //从集合中取出下载任务
+            DownloadTask task = mTask.get(fileInfo.getId());
+            if (task != null){
+                task.isPause = true;
             }
         }
 
@@ -62,10 +72,12 @@ public class DownloadService extends Service{
             switch (msg.what){
                 case MSG_INT:
                     FileInfo fileinfo = (FileInfo) msg.obj;//获得下面发送过来的FileInfo对象
-                    Log.i("test","init"+fileinfo);
+                    Log.i("test", "init" + fileinfo);
                     //启动下载任务
-                    mTask = new DownloadTask(DownloadService.this,fileinfo);
-                    mTask.download();
+                    DownloadTask task = new DownloadTask(DownloadService.this,fileinfo,2);
+                    task.download();
+                    //把下载任务添加到集合中
+                    mTask.put(fileinfo.getId(),task);
                     break;
             }
         }

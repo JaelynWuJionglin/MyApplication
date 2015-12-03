@@ -18,8 +18,21 @@ public class DBHaper extends SQLiteOpenHelper{
     //删除表
     private static final String SQL_DROP = "drop table if exists thread_info";
 
-    public DBHaper(Context context) {
+    private static DBHaper sHelper = null;//静态对象引用
+
+    private DBHaper(Context context) {
         super(context, DB_NAME, null, VERSION);
+    }
+
+    /**
+     * 实现数据库单例模式
+     * 获得类的对象
+     */
+    public static DBHaper getsInstance(Context context){
+        if (sHelper == null){
+            sHelper = new DBHaper(context);
+        }
+        return sHelper;
     }
 
     @Override

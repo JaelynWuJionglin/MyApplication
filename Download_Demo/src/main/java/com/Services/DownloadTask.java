@@ -157,7 +157,7 @@ public class DownloadTask {
                         //累加每个线程完成的进度
                         threadInfo.setFinished(threadInfo.getFinished()+len);
                         //把下载进度发送广播给Activity
-                        if (System.currentTimeMillis() - time >500){//每500毫秒发送一次
+                        if (System.currentTimeMillis() - time >1000){//每500毫秒发送一次
                             time = System.currentTimeMillis();
                             intent.putExtra("finished", mFinishde * 100 / fileInfo.getLength());
                             intent.putExtra("id", fileInfo.getId());

@@ -95,8 +95,8 @@ public class MainActivity extends Activity {
             }else if (DownloadService.ACTION_FINISH.equals(intent.getAction())){
                 //下载完毕设置进度条为0
                 FileInfo fileInfo = (FileInfo) intent.getSerializableExtra("fileInfo");
+                Toast.makeText(MainActivity.this,fileInfo.getFileName()+"下载完成",Toast.LENGTH_SHORT).show();
                 adapter.updateProgress(fileInfo.getId(),0);
-                Toast.makeText(MainActivity.this,fileInfo.getFileName()+"下载完成",Toast.LENGTH_SHORT).show();;
             }
         }
     };

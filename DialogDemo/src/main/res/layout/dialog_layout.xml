@@ -14,6 +14,7 @@
             android:hint="输入类容"
             android:layout_weight="1"/>
         <Button
+            android:id="@+id/tijiao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="提交"

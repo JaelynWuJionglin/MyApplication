@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 /**
@@ -156,13 +157,21 @@ public class MainActivity extends Activity {
     private void showDialog5() {
         LayoutInflater inflater = LayoutInflater.from(this);
         View view = inflater.inflate(R.layout.dialog_layout,null);//获取布局
+        Button button = (Button) view.findViewById(R.id.tijiao);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("自定义对话框");//设置标题
         builder.setIcon(R.mipmap.ic_launcher);//设置图标
         builder.setView(view);
-        AlertDialog dialog = builder.create();//获取dialog
+        final AlertDialog dialog = builder.create();//获取dialog
         dialog.show();//显示对话框
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                  dialog.dismiss();
+            }
+        });
     }
 
 }

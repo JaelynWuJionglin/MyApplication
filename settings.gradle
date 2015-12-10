@@ -1,1 +1,1 @@
-include  ':work', ':work', ':marqueetext', ':Counte', ':Download_Demo', ':'
+include ':work', ':work', ':marqueetext', ':Counte', ':Download_Demo', ':DialogDemo', ':NotificationDemo', ':imooc_imageloader', ':photohandle', ':'

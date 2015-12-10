@@ -3,9 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Counte/Counte.iml" filepath="$PROJECT_DIR$/Counte/Counte.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DialogDemo/DialogDemo.iml" filepath="$PROJECT_DIR$/DialogDemo/DialogDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/Download_Demo/Download_Demo.iml" filepath="$PROJECT_DIR$/Download_Demo/Download_Demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NotificationDemo/NotificationDemo.iml" filepath="$PROJECT_DIR$/NotificationDemo/NotificationDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/imooc_imageloader/imooc_imageloader.iml" filepath="$PROJECT_DIR$/imooc_imageloader/imooc_imageloader.iml" />
       <module fileurl="file://$PROJECT_DIR$/marqueetext/marqueetext.iml" filepath="$PROJECT_DIR$/marqueetext/marqueetext.iml" />
+      <module fileurl="file://$PROJECT_DIR$/photohandle/photohandle.iml" filepath="$PROJECT_DIR$/photohandle/photohandle.iml" />
       <module fileurl="file://$PROJECT_DIR$/work/work.iml" filepath="$PROJECT_DIR$/work/work.iml" />
     </modules>
   </component>

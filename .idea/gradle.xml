@@ -10,8 +10,12 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Counte" />
+            <option value="$PROJECT_DIR$/DialogDemo" />
             <option value="$PROJECT_DIR$/Download_Demo" />
+            <option value="$PROJECT_DIR$/NotificationDemo" />
+            <option value="$PROJECT_DIR$/imooc_imageloader" />
             <option value="$PROJECT_DIR$/marqueetext" />
+            <option value="$PROJECT_DIR$/photohandle" />
             <option value="$PROJECT_DIR$/work" />
           </set>
         </option>
@@ -19,8 +23,12 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Counte" />
+            <option value="$PROJECT_DIR$/DialogDemo" />
             <option value="$PROJECT_DIR$/Download_Demo" />
+            <option value="$PROJECT_DIR$/NotificationDemo" />
+            <option value="$PROJECT_DIR$/imooc_imageloader" />
             <option value="$PROJECT_DIR$/marqueetext" />
+            <option value="$PROJECT_DIR$/photohandle" />
             <option value="$PROJECT_DIR$/work" />
           </set>
         </option>

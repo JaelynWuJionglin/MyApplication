@@ -40,4 +40,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="自定义对话框"/>
+
+    <Button
+        android:id="@+id/dailog_bt6"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="ViewPager"/>
+    <Button
+        android:id="@+id/dailog_bt7"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="ViewPager1"/>
+
+    <Button
+        android:id="@+id/dailog_bt8"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Fragment管理的ViewPager"/>
 </LinearLayout>

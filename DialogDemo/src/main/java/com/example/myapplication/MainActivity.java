@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,6 +59,24 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 showDialog5();
+            }
+        });
+        findViewById(R.id.dailog_bt6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showViewPager();
+            }
+        });
+        findViewById(R.id.dailog_bt7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showViewPager1();
+            }
+        });
+        findViewById(R.id.dailog_bt8).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showViewPager2();
             }
         });
     }
@@ -172,6 +191,30 @@ public class MainActivity extends Activity {
                   dialog.dismiss();
             }
         });
+    }
+
+    /*
+    * ViewPager
+    * */
+    private void showViewPager(){
+        Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+        startActivity(intent);
+    }
+
+    /*
+    * 自制ViewPager
+    * */
+    private void showViewPager1(){
+        Intent intent = new Intent(MainActivity.this,MainActivity3.class);
+        startActivity(intent);
+    }
+
+    /*
+    * Fragment管理的ViewPager
+    * */
+    private void showViewPager2(){
+        Intent intent = new Intent(MainActivity.this,MainActivity4.class);
+        startActivity(intent);
     }
 
 }

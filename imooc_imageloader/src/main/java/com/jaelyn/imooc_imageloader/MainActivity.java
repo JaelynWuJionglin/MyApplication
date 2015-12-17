@@ -158,15 +158,22 @@ public class MainActivity extends Activity {
         new Thread() {
             public void run() {
 
-                Uri mImgUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-                ContentResolver cr = getContentResolver();
+                Uri mImageUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+                ContentResolver mContentResolver = MainActivity.this.getContentResolver();
 
-                Cursor cursor = cr.query(mImgUri, null, MediaStore.Images.Media.MIME_TYPE + "= ? or"
-                        + MediaStore.Images.Media.MIME_TYPE+ "= ?",
-                        new String[]{"image/jpeg", "image/png"}, MediaStore.Images.Media.DATE_MODIFIED);
+                //只查询jpeg和png的图片
+                Cursor cursor = mContentResolver.query(mImageUri, null,
+                        MediaStore.Images.Media.MIME_TYPE + "=? or "
+                                + MediaStore.Images.Media.MIME_TYPE + "=?",
+                        new String[] { "image/jpeg", "image/png" }, MediaStore.Images.Media.DATE_MODIFIED);
+
 
                 Set<String> mDirPaths = new HashSet<String>();
 
+
+                if(cursor == null){
+                    return;
+                }
 
                 while (cursor.moveToNext()) {
                     String path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));

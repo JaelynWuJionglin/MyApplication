@@ -91,10 +91,10 @@ public class ImageAdapter extends BaseAdapter {
             }
         });
 
-        /*if (mSeletedImg.contains(filePath)){
+        if (mSeletedImg.contains(filePath)){
             viewHolder.mImg.setColorFilter(Color.parseColor("#77000000"));
             viewHolder.mSelect.setImageResource(R.drawable.selected);
-        }*/
+        }
         return convertView;
     }
 

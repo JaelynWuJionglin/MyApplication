@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Toolbars">
+        <attr name="titleStrings" format="string"/>
+        <attr name="titleTextSizes" format="dimension"/>
+        <attr name="titleTextColors" format="color"/>
+        <attr name="leftTextColors" format="color"/>
+        <attr name="leftBackgrounds" format="reference|color"/>
+        <attr name="leftTexts" format="string"/>
+        <attr name="rightTextColors" format="color"/>
+        <attr name="rightBackgrounds" format="reference|color"/>
+        <attr name="rightTexts" format="string"/>
+        <attr name="swichOrTitle" format="string"/>
+    </declare-styleable>
+</resources>

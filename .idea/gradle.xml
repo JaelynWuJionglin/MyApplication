@@ -3,6 +3,9 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT" />
+        </compositeConfiguration>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleJvm" value="1.8" />
@@ -20,20 +23,7 @@
             <option value="$PROJECT_DIR$/work" />
           </set>
         </option>
-        <option name="myModules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/Counte" />
-            <option value="$PROJECT_DIR$/DialogDemo" />
-            <option value="$PROJECT_DIR$/Download_Demo" />
-            <option value="$PROJECT_DIR$/JaelynDemo" />
-            <option value="$PROJECT_DIR$/NotificationDemo" />
-            <option value="$PROJECT_DIR$/imooc_imageloader" />
-            <option value="$PROJECT_DIR$/marqueetext" />
-            <option value="$PROJECT_DIR$/photohandle" />
-            <option value="$PROJECT_DIR$/work" />
-          </set>
-        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>
